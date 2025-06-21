@@ -12,15 +12,14 @@ Add refresh button for MCP servers in Cursor IDE. Easily restart MCP servers whe
 
 ## 📦 Installation
 
-### Method 1: Download and Install VSIX
+### Method 1: Download Pre-built Extension
 
-1. Go to the [Releases page](https://github.com/tankmurdock/cursor-mcp-refresh/releases)
-2. Download the latest `cursor-mcp-refresh-x.x.x.vsix` file
-3. Open Cursor IDE
-4. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the command palette
-5. Type "Extensions: Install from VSIX" and select it
-6. Browse to the downloaded `.vsix` file and select it
-7. The extension will be installed and activated
+1. Download `cursor-mcp-refresh-1.0.0.vsix` directly from this repository
+2. Open Cursor IDE
+3. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the command palette
+4. Type "Extensions: Install from VSIX" and select it
+5. Browse to the downloaded `.vsix` file and select it
+6. The extension will be installed and activated
 
 ### Method 2: Build from Source
 
