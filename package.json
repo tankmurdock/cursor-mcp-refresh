@@ -1,0 +1,117 @@
+{
+  "name": "cursor-mcp-refresh",
+  "displayName": "Cursor MCP Server Refresh",
+  "description": "Add refresh button for MCP servers in Cursor IDE. Easily restart MCP servers when they get stuck or need a refresh.",
+  "version": "1.0.0",
+  "publisher": "cursor-community",
+  "license": "MIT",
+  "homepage": "https://github.com/tankmurdock/cursor-mcp-refresh",
+  "bugs": {
+    "url": "https://github.com/tankmurdock/cursor-mcp-refresh/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tankmurdock/cursor-mcp-refresh.git"
+  },
+  "keywords": [
+    "cursor",
+    "mcp",
+    "model-context-protocol",
+    "server",
+    "refresh",
+    "restart",
+    "ai",
+    "development"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursor-mcp-refresh.refreshServers",
+        "title": "Refresh MCP Servers",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "cursor-mcp-refresh.refreshSingleServer",
+        "title": "Refresh Server",
+        "icon": "$(refresh)"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "mcpServersView",
+          "name": "MCP Servers",
+          "when": "config.cursor-mcp-refresh.showInExplorer"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "mcp-servers",
+          "title": "MCP Servers",
+          "icon": "$(server-process)"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "cursor-mcp-refresh.refreshServers",
+          "when": "view == mcpServersView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "cursor-mcp-refresh.refreshSingleServer",
+          "when": "view == mcpServersView && viewItem == mcpServer",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Cursor MCP Refresh",
+      "properties": {
+        "cursor-mcp-refresh.mcpConfigPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to mcp.json configuration file"
+        },
+        "cursor-mcp-refresh.showInExplorer": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show MCP Servers view in Explorer"
+        },
+        "cursor-mcp-refresh.autoRefreshInterval": {
+          "type": "number",
+          "default": 0,
+          "description": "Auto-refresh interval in seconds (0 to disable)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2"
+  }
+}
