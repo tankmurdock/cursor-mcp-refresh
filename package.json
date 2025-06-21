@@ -2,7 +2,7 @@
   "name": "cursor-mcp-refresh",
   "displayName": "Cursor MCP Server Refresh",
   "description": "Add refresh button for MCP servers in Cursor IDE. Easily restart MCP servers when they get stuck or need a refresh.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "cursor-community",
   "license": "MIT",
   "homepage": "https://github.com/tankmurdock/cursor-mcp-refresh",
@@ -37,13 +37,23 @@
     "commands": [
       {
         "command": "cursor-mcp-refresh.refreshServers",
-        "title": "Refresh MCP Servers",
+        "title": "Refresh All MCP Servers",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "cursor-mcp-refresh.refreshEnabledServers",
+        "title": "Refresh Enabled MCP Servers",
         "icon": "$(refresh)"
       },
       {
         "command": "cursor-mcp-refresh.refreshSingleServer",
         "title": "Refresh Server",
         "icon": "$(refresh)"
+      },
+      {
+        "command": "cursor-mcp-refresh.selectServers",
+        "title": "Select MCP Servers",
+        "icon": "$(settings-gear)"
       }
     ],
     "views": {
@@ -67,7 +77,12 @@
     "menus": {
       "view/title": [
         {
-          "command": "cursor-mcp-refresh.refreshServers",
+          "command": "cursor-mcp-refresh.refreshEnabledServers",
+          "when": "view == mcpServersView",
+          "group": "navigation"
+        },
+        {
+          "command": "cursor-mcp-refresh.selectServers",
           "when": "view == mcpServersView",
           "group": "navigation"
         }
@@ -97,6 +112,14 @@
           "type": "number",
           "default": 0,
           "description": "Auto-refresh interval in seconds (0 to disable)"
+        },
+        "cursor-mcp-refresh.enabledServers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "List of enabled MCP servers for refresh operations"
         }
       }
     }

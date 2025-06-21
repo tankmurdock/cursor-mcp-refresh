@@ -4,9 +4,12 @@ Add refresh button for MCP servers in Cursor IDE. Easily restart MCP servers whe
 
 ## 🚀 Features
 
-- **Refresh MCP Servers**: Quickly restart all MCP servers with one click
+- **Smart Server Selection**: Choose which MCP servers to actively manage
+- **Status Bar Integration**: Shows enabled server count with one-click refresh
+- **Refresh Selected Servers**: Only refresh the servers you actually use (much faster!)
 - **Individual Server Refresh**: Refresh specific servers when needed
 - **MCP Servers View**: Dedicated panel to monitor and manage your MCP servers
+- **Persistent Settings**: Your server preferences are saved between sessions
 - **Auto-refresh Option**: Configure automatic refresh intervals
 - **Explorer Integration**: Access MCP server controls directly from the Explorer panel
 
@@ -14,7 +17,7 @@ Add refresh button for MCP servers in Cursor IDE. Easily restart MCP servers whe
 
 ### Method 1: Download Pre-built Extension
 
-1. Download `cursor-mcp-refresh-1.0.0.vsix` directly from this repository
+1. Download `cursor-mcp-refresh-1.1.0.vsix` directly from this repository
 2. Open Cursor IDE
 3. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the command palette
 4. Type "Extensions: Install from VSIX" and select it
@@ -62,24 +65,32 @@ Access these settings via File → Preferences → Settings and search for "Curs
 
 ## 🎯 Usage
 
-### Refresh All Servers
+### Select Which Servers to Manage (First Time Setup)
 
 1. Open the MCP Servers view in the Explorer panel
-2. Click the refresh icon in the view title bar
-3. All MCP servers will be restarted
+2. Click the ⚙️ gear icon (Select Servers)
+3. Choose which servers you want to actively manage
+4. Your selection is saved for future use
+
+### Refresh Selected Servers (Recommended)
+
+1. **Status Bar**: Click the `MCP (X/Y)` button in the status bar
+2. **Or**: Click the refresh icon in the MCP Servers view
+3. Only your selected servers will be refreshed (much faster!)
 
 ### Refresh Individual Server
 
 1. In the MCP Servers view, find the server you want to refresh
-2. Click the refresh icon next to the specific server
-3. Only that server will be restarted
+2. Right-click and select "Refresh Server"
+3. Only that specific server will be restarted
 
 ### Command Palette
 
-You can also access refresh commands via the Command Palette (`Ctrl+Shift+P`):
+Access commands via Command Palette (`Ctrl+Shift+P`):
 
-- "Refresh MCP Servers" - Refresh all servers
-- "Refresh Server" - Refresh a specific server
+- "Refresh Enabled MCP Servers" - Refresh only selected servers
+- "Select MCP Servers" - Choose which servers to manage
+- "Refresh All MCP Servers" - Refresh everything (available in command palette)
 
 ## 🐛 Reporting Issues
 
